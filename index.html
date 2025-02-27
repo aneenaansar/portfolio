@@ -31,6 +31,7 @@
       background: var(--primary);
       color: var(--text);
       overflow-x: hidden;
+      position: relative;
     }
 
     /* -------------------------------------------------
@@ -247,6 +248,45 @@
     }
 
     /* -------------------------------------------------
+       Navigation Styles
+    ------------------------------------------------- */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      width: 100%;
+      margin: 2rem 0;
+    }
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav ul li {
+      border: 2px solid var(--accent);
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: var(--secondary);
+      border-radius: 30px;
+      font-size: 0.9rem;
+    }
+    nav ul li:hover {
+      background-color: var(--hover);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* -------------------------------------------------
        Animations
     ------------------------------------------------- */
     @keyframes slideUp {
@@ -256,6 +296,120 @@
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
+    }
+
+
+    /* About Section Styles */
+    .about-section {
+      padding: 8rem 2rem;
+      background: var(--primary);
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 50%;
+      overflow: hidden;
+      width: 350px;
+      height: 350px;
+      margin: 0 auto;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 30px rgba(201, 168, 106, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .about-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(201, 168, 106, 0.5);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    .about-text {
+      color: var(--secondary);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .about-details {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .detail-item {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--accent);
+    }
+
+    .detail-label {
+      display: block;
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .detail-value {
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .about-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      
+      .about-image {
+        width: 250px;
+        height: 250px;
+      }
+      
+      .section-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30%;
+      }
+      
+      .about-details {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -313,27 +467,85 @@ function createPortfolio() {
     </div>
   </section>
 
+  <section>
+     <!-- Navigation (centered on the page) -->
+     <nav>
+      <ul>
+        <li>About</li>
+        <li>Experience</li>
+        <li>Education</li>
+        <li>Skills</li>
+        <li>Projects</li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- Add this after the </section> closing the hero section but before the navigation -->
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="about-image">
+      <img src="./images/neenu.jpg" alt="Aneena Ansar" />
+    </div>
+    <div class="about-content">
+      <h2 class="section-title">About Me</h2>
+      <p class="about-text">
+        Passionate Full Stack Developer with 2+ years of experience in crafting robust web applications. 
+        I specialize in modern JavaScript frameworks and Python-based backends, with a keen eye for 
+        creating intuitive user experiences. Currently based in Qatar, I thrive in solving complex 
+        problems and turning ideas into scalable digital solutions.
+      </p>
+      <p class="about-text">
+        When I'm not coding, you'll find me exploring new technologies, contributing to open-source 
+        projects, or creating tech content. My development philosophy centers around clean architecture, 
+        efficient code, and continuous learning.
+      </p>
+      <div class="about-details">
+        <div class="detail-item">
+          <span class="detail-label">Location:</span>
+          <span class="detail-value">Qatar</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Experience:</span>
+          <span class="detail-value">2+ Years</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Email:</span>
+          <span class="detail-value">aneenaanzz123@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  
+
   <!-- -------------------------------------------------
        JavaScript for Background Animations
   ------------------------------------------------- -->
-  <script>
+  <!-- <script>
     /* Pattern Animation (Grid Pattern) */
     const patternCanvas = document.getElementById('pattern-canvas');
     const pCtx = patternCanvas.getContext('2d');
+
     function resizePatternCanvas() {
       patternCanvas.width = window.innerWidth;
       patternCanvas.height = window.innerHeight;
     }
     resizePatternCanvas();
     window.addEventListener('resize', resizePatternCanvas);
+
     function drawPattern() {
       pCtx.clearRect(0, 0, patternCanvas.width, patternCanvas.height);
       const cellSize = 100;
       const cols = Math.ceil(patternCanvas.width / cellSize);
       const rows = Math.ceil(patternCanvas.height / cellSize);
+
       pCtx.strokeStyle = getComputedStyle(document.documentElement)
                          .getPropertyValue('--pattern-color');
       pCtx.lineWidth = 1;
+
       for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
           const x = i * cellSize + cellSize / 2 + Math.sin(Date.now() / 1000 + i) * 10;
@@ -350,12 +562,14 @@ function createPortfolio() {
     /* Particle Animation */
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
+
     function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
+
     class Particle {
       constructor() {
         this.reset();
@@ -391,11 +605,13 @@ function createPortfolio() {
         }
       }
     }
+
     const particles = [];
     const particleCount = window.innerWidth < 768 ? 50 : 100;
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
+
     function animateParticles() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       // Gradient background for particles
@@ -404,10 +620,14 @@ function createPortfolio() {
       grad.addColorStop(1, "#1a1a1a");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
+
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
       requestAnimationFrame(animateParticles);
     }
     animateParticles();
-  </script>
+  </script> -->
 </body>
 </html>
