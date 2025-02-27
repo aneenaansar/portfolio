@@ -411,6 +411,116 @@
         grid-template-columns: 1fr;
       }
     }
+
+
+    /* Experience Section Styles */
+.experience-section {
+  padding: 8rem 2rem;
+  background: var(--primary);
+  position: relative;
+  z-index: 1;
+}
+
+.experience-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.experience-timeline {
+  position: relative;
+  padding-left: 30px;
+  margin-top: 3rem;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 4rem;
+  padding-left: 30px;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--primary);
+}
+
+.experience-header {
+  margin-bottom: 1.5rem;
+}
+
+.experience-title {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.experience-company {
+  display: block;
+  color: var(--accent);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.experience-duration {
+  display: inline-block;
+  background: rgba(201, 168, 106, 0.2);
+  color: var(--accent);
+  padding: 0.3rem 1rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+}
+
+.experience-description {
+  padding-left: 1.5rem;
+  color: var(--secondary);
+  line-height: 1.6;
+}
+
+.experience-description li {
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.experience-description li::before {
+  content: '▹';
+  position: absolute;
+  left: -1.5rem;
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 20px;
+  }
+  
+  .experience-item {
+    padding-left: 20px;
+  }
+  
+  .experience-title {
+    font-size: 1.3rem;
+  }
+  
+  .experience-description {
+    padding-left: 1rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -484,7 +594,7 @@ function createPortfolio() {
 <section id="about" class="about-section">
   <div class="about-container">
     <div class="about-image">
-      <img src="./images/neenu.jpg" alt="Aneena Ansar" />
+      <img src="./images/neenu1.jpg" alt="Aneena Ansar" />
     </div>
     <div class="about-content">
       <h2 class="section-title">About Me</h2>
@@ -516,6 +626,61 @@ function createPortfolio() {
     </div>
   </div>
 </section>
+
+
+<!-- Add this after the About section -->
+<section id="experience" class="experience-section">
+  <div class="experience-container">
+    <h2 class="section-title">Experience</h2>
+    
+    <div class="experience-timeline">
+      <!-- Experience Item 1 -->
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Web Developer</h3>
+          <span class="experience-company">Everything Design Studio, Qatar</span>
+          <span class="experience-duration">December 2024 – Present</span>
+        </div>
+        <ul class="experience-description">
+          <li>Developed and maintained websites using WordPress Elementor with XAMPP and HTML, CSS, JavaScript.</li>
+          <li>Ensured optimal performance, responsiveness, and SEO optimization.</li>
+          <li>Collaborated with designers and clients to meet project requirements.</li>
+        </ul>
+      </div>
+
+      <!-- Experience Item 2 -->
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Full Stack Developer</h3>
+          <span class="experience-company">Offerpedia</span>
+          <span class="experience-duration">October 2023 – November 2024</span>
+        </div>
+        <ul class="experience-description">
+          <li>Contributed to the development of ERP systems, focusing on both backend and frontend components using Python (Django) and Vue.js.</li>
+          <li>Designed and built APIs for various ERP modules, ensuring smooth integration with client systems.</li>
+          <li>Assisted in the development of backend features for business process automation and data management.</li>
+          <li>Worked closely with senior developers to improve system architecture and optimize database queries for performance.</li>
+        </ul>
+      </div>
+
+      <!-- Experience Item 3 -->
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3 class="experience-title">Full Stack Developer Intern</h3>
+          <span class="experience-company">eFuturex</span>
+          <span class="experience-duration">June 2023 – September 2023</span>
+        </div>
+        <ul class="experience-description">
+          <li>Developed static websites and contributed to both frontend and backend projects, gaining hands-on experience with full-stack development.</li>
+          <li>Worked on creating responsive user interfaces using HTML, CSS, JavaScript, and Vue.js.</li>
+          <li>Built backend functionalities using Django and Django REST Framework, implementing API endpoints and database models.</li>
+          <li>Enhanced coding skills by creating cloned websites to practice and refine frontend and backend techniques.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 
 
